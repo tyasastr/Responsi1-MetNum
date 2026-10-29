@@ -1,14 +1,15 @@
+
 % pengerjaan kasus 1 responsi 1
 % Tyasastri Hning Kurniasih L0325034
 
 function Kasus1()
-  t = linspace(0, 4, 500);
-  x = 4 * t;
+  t = linspace(0, 5, 500);
+  x = 3 * t;
   eksak = hitungNilaiEksak(t);           % hitung nilai
   hasil_n23 = hitungPendekatan(x, 23);
-  hasil_n24 = hitungPendekatan (x, 24);
-  hasil_n25 = hitungPendekatan (x, 25);
-  tampilkanHasil (eksak, hasil_n23, hasil_n24, hasil_n25); %menampilkan hasil
+  hasil_n24 = hitungPendekatan(x, 24);
+  hasil_n25 = hitungPendekatan(x, 25);
+  tampilkanHasil(eksak, hasil_n23, hasil_n24, hasil_n25);
 
   figure;
   hold on;
@@ -21,7 +22,7 @@ function Kasus1()
 endfunction
 
 function eksak = hitungNilaiEksak(t)
-  eksak = 3 * (cos((t * 20)/5) + exp(10));
+  eksak = 5 * (cos((t * 36)/12) + exp(10));
 endfunction
 
 function hasil = hitungPendekatan(x, n)
@@ -31,7 +32,7 @@ function hasil = hitungPendekatan(x, n)
     deret_cos += (-1)^i * (x.^(2*i)) / factorial(2*i);
     deret_exp += (10^i) / factorial(i);
   endfor
-  hasil = 3 * (deret_cos + deret_exp);
+  hasil = 5 * (deret_cos + deret_exp);
 endfunction
 
 
@@ -90,23 +91,29 @@ function tampilkanHasil(eksak, n23, n24, n25)
   endif
 endfunction
 
- function aturGrafik(feksak, hasil_n23, hasil_n24, hasil_n25)
-   text(0.5, 0.95, 'Tyasastri Hning Kurniasih - L0325034', ...
+function aturGrafik(feksak, hasil_n23, hasil_n24, hasil_n25)
+  text(0.5, 0.95, 'Tyasastri Hning Kurniasih - L0325034', ...
        'Units', 'normalized', ...
        'HorizontalAlignment', 'center', ...
        'VerticalAlignment', 'top', ...
        'FontSize', 10, ...
-       'Color', [0.65 0.65 0.65]); % wm
-   grid on;
-   xlabel('t');
-   ylabel('h       ');
-   title('Visualisasi Gelombang Air Laut h = h_0(cos(tv/\lambda)+e^x', 'Fontsize', 12);
-   legend('feksak', 'fn = 23', 'fn = 24', 'fn = 25', 'location', 'southeastoutside');
-   pos_x = 3;
-   idx = 375;
-   text(pos_x, feksak(idx), 'feksak', 'FontSize', 9);
-   text(pos_x, hasil_n23(idx), 'fn = 23', 'FontSize', 9);
-   text(pos_x, hasil_n24(idx), 'fn = 24', 'FontSize', 9);
-   text(pos_x, hasil_n25(idx), 'fn = 25', 'FontSize', 9);
-fprintf('\nTyasastri Hning Kurniasih L0325034\n'); %wm
- endfunction
+       'Color', [0.65 0.65 0.65]);
+
+  grid on;
+  xlabel('t');
+  ylabel('h');
+  title('Visualisasi Gelombang Air Laut h = h_0(cos(tv/\lambda)+e^x)', ...
+        'FontSize', 12);
+
+  legend('feksak', 'fn = 23', 'fn = 24', 'fn = 25', ...
+         'location', 'southeastoutside');
+
+  pos_x = 3;
+  idx = 375;
+  text(pos_x, feksak(idx), 'feksak', 'FontSize', 9);
+  text(pos_x, hasil_n23(idx), 'fn = 23', 'FontSize', 9);
+  text(pos_x, hasil_n24(idx), 'fn = 24', 'FontSize', 9);
+  text(pos_x, hasil_n25(idx), 'fn = 25', 'FontSize', 9);
+
+  fprintf('\nTyasastri Hning Kurniasih L0325034\n');
+endfunction
