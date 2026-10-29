@@ -13,7 +13,7 @@ function Kasus3()
   a = 4;
   b = 5;
 
-  n = 20;
+  n = 25;
   tol = 0.0001;
 
   fa = f(a);
@@ -30,8 +30,8 @@ function Kasus3()
     r = (a+b)/2;
     fc = f(r);
 
-    fprintf('%d\t%f\t%f\t%f\t%f\n',...
-            i,a,b,r,fc);
+    fprintf('%d\t%.10f\t%.10f\t%.10f\t%.10f\n',...
+        i,a,b,r,fc);
 
     if abs(fc) <= tol
       break;
@@ -47,7 +47,7 @@ function Kasus3()
 
   endfor
 
-  fprintf('\nJari-jari bola dan tabung = %.6f cm\n', r);
+  fprintf('\nJari-jari bola dan tabung = %.10f cm\n', r);
 
   % volume bola
   Vbola = (4/3)*pi*r^3;
@@ -59,9 +59,9 @@ function Kasus3()
   % volume tabung di luar bola
   Vluar = Vtabung - Vbola;
 
-  fprintf('Volume bola = %.6f cm^3\n',Vbola);
-  fprintf('Volume tabung = %.6f cm^3\n',Vtabung);
-  fprintf('Volume tabung di luar bola = %.6f cm^3\n',Vluar);
+  fprintf('Volume bola = %.10f cm^3\n',Vbola);
+  fprintf('Volume tabung = %.10f cm^3\n',Vtabung);
+  fprintf('Volume tabung di luar bola = %.10f cm^3\n',Vluar);
 
 fprintf('\nTyasastri Hning Kurniasih L0325034\n'); %wm
 end
